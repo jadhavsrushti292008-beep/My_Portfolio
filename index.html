@@ -95,12 +95,17 @@
         /* Grid Layouts */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         
-        /* Specific Project Grid (2 rows, 2 columns) */
+        /* Specific Project Grid */
         .project-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
             gap: 30px; 
             margin-bottom: 50px;
+        }
+
+        /* Makes the 5th project span full-width on desktop for a cleaner look */
+        .project-grid .card:nth-child(5) {
+            grid-column: span 2;
         }
 
         .card {
@@ -143,24 +148,28 @@
         footer { text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
         @media (max-width: 768px) {
-    .hero { flex-direction: column; text-align: center; padding: 60px 5%; }
-    .grid-2, .project-grid { grid-template-columns: 1fr; }
-    
-    /* Updated Mobile Navigation */
-    nav {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    .nav-links { 
-        display: flex; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        margin-top: 15px;
-    }
-    .nav-links li { 
-        margin: 5px 10px; 
-    }
-}
+            .hero { flex-direction: column; text-align: center; padding: 60px 5%; }
+            .grid-2, .project-grid { grid-template-columns: 1fr; }
+            
+            .project-grid .card:nth-child(5) {
+                grid-column: span 1;
+            }
+            
+            /* Updated Mobile Navigation */
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-links { 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                margin-top: 15px;
+            }
+            .nav-links li { 
+                margin: 5px 10px; 
+            }
+        }
     </style>
 </head>
 <body>
@@ -192,14 +201,14 @@
     </div>
 </header>
 
-<div class="container">
+<main class="container">
     
     <section id="about" style="margin-bottom: 80px;">
         <h2 class="section-title">About Me</h2>
         <div class="card">
             <p style="color: var(--text-dim); font-size: 1.1rem; line-height: 1.8;">
-                I am currently pursuing my first year in engineering at MIT AOE,Alandi.
-                I am deeply interested in understanding how technology shapes the world and njoy working on practical problems through projects and experimentation.
+                I am currently pursuing my first year in engineering at MIT AOE, Alandi.
+                I am deeply interested in understanding how technology shapes the world and enjoy working on practical problems through projects and experimentation.
                 Strongly driven by problem-solving and technical innovation, aiming to leverage a solid academic foundation to build efficient, scalable engineering solutions. 
                 Dedicated to continuous learning, currently exploring C, Python, and the intersection of technology and creativity.
             </p>
@@ -210,8 +219,8 @@
         <h2 class="section-title">Projects</h2>
         <div class="project-grid">
             <div class="card">
-                <span class="proj-tech">Languages: HTML / CSS / Java </span>
-                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Clean Connet – Waste Management Website</h3>
+                <span class="proj-tech">Languages: HTML / CSS / Java</span>
+                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Clean Connect – Waste Management Website</h3>
                 <ul class="achievement-list">
                     <li>Designed and developed a responsive waste management website focused on improving cleanliness and environmental awareness.</li>
                     <li>Implemented a reporting interface where users can submit waste-related issues for further action and monitoring.</li>
@@ -220,7 +229,7 @@
             </div>
 
             <div class="card">
-                <span class="proj-tech">Tools: Tableau / Orange </span>
+                <span class="proj-tech">Tools: Tableau / Orange</span>
                 <h3 style="margin: 8px 0 10px 0; color: var(--white);">Interactive Dashboards in Tableau</h3>
                 <ul class="achievement-list">
                     <li>Designed comprehensive data tables and interactive dashboards to visualize complex information.</li>
@@ -239,11 +248,11 @@
             </div>
 
             <div class="card">
-                <span class="proj-tech">Environment: Linux Shell/C</span>
+                <span class="proj-tech">Environment: Linux Shell / C</span>
                 <h3 style="margin: 8px 0 10px 0; color: var(--white);">Linux Health Management Utility</h3>
                 <ul class="achievement-list">
                     <li>Built a comprehensive health tracking tool to monitor daily steps and set reminders.</li>
-                    <li>Implemented calculation modules for BMI (Body Max Index) and oxygen level tracking for user wellness.</li>
+                    <li>Implemented calculation modules for BMI (Body Mass Index) and oxygen level tracking for user wellness.</li>
                 </ul>
             </div>
 
@@ -254,7 +263,7 @@
                    <li>Conceptualized and designed a responsive, single-page professional portfolio website.</li>
                    <li>Implemented a custom Dark/Sky-Blue aesthetic using modern CSS variables and flexbox layouts.</li>
                    <li>Showcased technical projects and academic milestones in a structured, recruiter-friendly digital format.</li>
-             </ul>
+                </ul>
             </div>
         </div>
     </section>
@@ -300,14 +309,13 @@
         </section>
     </div>
 
-    
     <section id="achievements" style="margin-bottom: 80px;">
         <h2 class="section-title">Achievements</h2>
         <div class="card">
             <ul class="achievement-list">
-                <li>Achieved Cisco Certificates for Python essential course 1 & 2</li>
+                <li>Achieved Cisco Certificates for Python Essential Course 1 & 2</li>
                 <li>Actively pursuing multilingual proficiency in German and Korean (Beginner)</li>
-                <li>Awarded Bronze medal in GK Olympiad in 7th Grade </li>
+                <li>Awarded Bronze medal in GK Olympiad in 7th Grade</li>
                 <li>Qualified for JEE Advanced</li>
             </ul>
         </div>
@@ -330,7 +338,7 @@
         </div>
     </section>
 
-</div>
+</main>
 
 <footer>
     <p>&copy; 2026 Srushti Sudhakar Jadhav. Developed with Code & Creativity.</p>
