@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srushti Jadhav | Portfolio</title>
+    <style>
+        :root {
+            /* Aesthetic Dark & Sky Blue Palette */
+            --bg-black: #0f172a;       /* Deep Midnight Black/Blue for background */
+            --card-black: #1e293b;     /* Slightly lighter black for cards */
+            --sky-blue: #38bdf8;       /* Vibrant Sky Blue for accents */
+            --white: #f8fafc;          /* Off-white for high readability */
+            --text-dim: #94a3b8;       /* Muted blue-grey for descriptions */
+            --nav-bg: #0f172a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background-color: var(--bg-black); 
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--nav-bg);
+            padding: 1.2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .nav-logo { font-weight: 800; color: var(--sky-blue); font-size: 1.2rem; letter-spacing: 1px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: var(--white); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--sky-blue); }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-black);
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 4px solid var(--sky-blue);
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-text h1 { font-size: 2.8rem; margin-bottom: 10px; letter-spacing: -1px; color: var(--white); }
+        .hero-text p { color: var(--sky-blue); font-size: 1.2rem; font-weight: 600; margin-bottom: 25px; }
+        
+        /* Contact Pill Updated for New Lines */
+        .contact-pill {
+            display: flex;
+            flex-direction: column; /* Stacked in new lines */
+            gap: 8px;
+            background: var(--card-black);
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--white);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            width: fit-content;
+        }
+
+        /* Container & Sections */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { 
+            font-size: 1.8rem; 
+            margin-bottom: 40px; 
+            display: flex; 
+            align-items: center; 
+            color: var(--sky-blue);
+        }
+        .section-title::after { content: ""; flex: 1; height: 1px; background: var(--sky-blue); margin-left: 20px; opacity: 0.3; }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        
+        /* Specific Project Grid (2 rows, 2 columns) */
+        .project-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--card-black);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            height: auto; 
+        }
+        .card:hover { 
+            transform: translateY(-8px); 
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.1);
+        }
+
+        /* Skills Tags */
+        .skill-tag { 
+            display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--sky-blue); 
+            padding: 8px 18px; border-radius: 12px; margin: 5px 3px; font-size: 0.85rem; font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Education Styling */
+        .edu-box { margin-bottom: 25px; border-left: 2px solid var(--sky-blue); padding-left: 20px; }
+        .edu-inst { font-weight: 700; font-size: 1.1rem; color: var(--white); margin-bottom: 4px; }
+        .edu-score { 
+            display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--sky-blue); 
+            padding: 3px 12px; border-radius: 6px; font-size: 0.8rem; margin-top: 8px; font-weight: 600;
+        }
+
+        /* Project List */
+        .proj-tech { color: var(--sky-blue); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .achievement-list { list-style: none; margin-top: 15px; }
+        .achievement-list li { margin-bottom: 12px; font-size: 0.95rem; color: var(--text-dim); position: relative; padding-left: 25px; }
+        .achievement-list li::before { content: "→"; position: absolute; left: 0; color: var(--sky-blue); font-weight: bold; }
+
+        footer { text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        @media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; padding: 60px 5%; }
+    .grid-2, .project-grid { grid-template-columns: 1fr; }
+    
+    /* Updated Mobile Navigation */
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav-links { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        margin-top: 15px;
+    }
+    .nav-links li { 
+        margin: 5px 10px; 
+    }
+}
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">SRUSHTI'S.PORTFOLIO</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#interests">Interests</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+    <div class="hero-image">
+        <img src="./myphotocopy.jpg" alt="Srushti Jadhav"> 
+    </div>
+    <div class="hero-text">
+        <h1>SRUSHTI SUDHAKAR JADHAV</h1>
+        <p>First Year B.Tech Student | MIT AOE, Alandi | Aspiring Engineer</p>
+        <div class="contact-pill">
+            <span>📧  jadhavsrushti292008@gmail.com</span>
+            <span>📞  +91 93073 40670</span>
+            <span>📍  Nashik, Maharashtra</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <section id="about" style="margin-bottom: 80px;">
+        <h2 class="section-title">About Me</h2>
+        <div class="card">
+            <p style="color: var(--text-dim); font-size: 1.1rem; line-height: 1.8;">
+                I am currently pursuing my first year in engineering at MIT AOE,Alandi.
+                I am deeply interested in understanding how technology shapes the world and njoy working on practical problems through projects and experimentation.
+                Strongly driven by problem-solving and technical innovation, aiming to leverage a solid academic foundation to build efficient, scalable engineering solutions. 
+                Dedicated to continuous learning, currently exploring C, Python, and the intersection of technology and creativity.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects" style="margin-bottom: 80px;">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            <div class="card">
+                <span class="proj-tech">Languages: HTML / CSS / Java </span>
+                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Clean Connet – Waste Management Website</h3>
+                <ul class="achievement-list">
+                    <li>Designed and developed a responsive waste management website focused on improving cleanliness and environmental awareness.</li>
+                    <li>Implemented a reporting interface where users can submit waste-related issues for further action and monitoring.</li>
+                    <li>Conceptualized a future workflow connecting citizens, NGOs, and authorities for efficient waste management coordination.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="proj-tech">Tools: Tableau / Orange </span>
+                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Interactive Dashboards in Tableau</h3>
+                <ul class="achievement-list">
+                    <li>Designed comprehensive data tables and interactive dashboards to visualize complex information.</li>
+                    <li>Utilized advanced table tools and formulas to create dynamic graphs and charts for better data insights.</li>
+                    <li>Focused on organizing raw data into structured, easy-to-read visual formats for efficient analysis.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="proj-tech">Language: C</span>
+                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Seatbelt Safety System</h3>
+                <ul class="achievement-list">
+                    <li>Developed a safety-focused code logic that simulates seatbelt detection.</li>
+                    <li>Integrated a feature that triggers an alarm system if the seatbelt is unfastened while the vehicle is in motion.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="proj-tech">Environment: Linux Shell/C</span>
+                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Linux Health Management Utility</h3>
+                <ul class="achievement-list">
+                    <li>Built a comprehensive health tracking tool to monitor daily steps and set reminders.</li>
+                    <li>Implemented calculation modules for BMI (Body Max Index) and oxygen level tracking for user wellness.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="proj-tech">Languages: HTML / CSS</span>
+                <h3 style="margin: 8px 0 10px 0; color: var(--white);">Personal Professional Portfolio</h3>
+                <ul class="achievement-list">
+                   <li>Conceptualized and designed a responsive, single-page professional portfolio website.</li>
+                   <li>Implemented a custom Dark/Sky-Blue aesthetic using modern CSS variables and flexbox layouts.</li>
+                   <li>Showcased technical projects and academic milestones in a structured, recruiter-friendly digital format.</li>
+             </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="grid-2" style="margin-bottom: 80px;">
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="edu-box">
+                    <p style="font-size: 0.85rem; color: var(--sky-blue); font-weight: 700; text-transform: uppercase;">B.Tech - Computer Engineering</p>
+                    <p class="edu-inst">MIT AOE, Alandi</p>
+                    <p style="font-size: 0.85rem; color: var(--text-dim);">2025 — 2029</p>
+                    <span class="edu-score">First SEM SGPA: 9.25</span>
+                </div>
+
+                <div class="edu-box">
+                    <p style="font-size: 0.85rem; color: var(--sky-blue); font-weight: 700; text-transform: uppercase;">HSC (12th Grade)</p>
+                    <p class="edu-inst">AMRO Junior College</p>
+                    <span class="edu-score">Percentage: 75.17%</span><br>
+                    <span class="edu-score">MHT-CET: 95.84 Percentile</span>
+                </div>
+
+                <div class="edu-box">
+                    <p style="font-size: 0.85rem; color: var(--sky-blue); font-weight: 700; text-transform: uppercase;">CBSE (10th Grade)</p>
+                    <p class="edu-inst">Kendriya Vidyalaya AFS Ojhar</p>
+                    <span class="edu-score">Percentage: 91.0%</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical & Soft Skills</h2>
+            <div class="card">
+                <p style="font-weight: 700; margin-bottom: 15px; font-size: 0.8rem; color: var(--white); letter-spacing: 1px;">DEVELOPMENT</p>
+                <span class="skill-tag">C (Basics)</span>
+                <span class="skill-tag">Python (Basics)</span>
+                
+                <p style="font-weight: 700; margin: 30px 0 15px 0; font-size: 0.8rem; color: var(--white); letter-spacing: 1px;">PROFESSIONAL</p>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Public Speaking</span>
+                <span class="skill-tag">Teamwork</span>
+            </div>
+        </section>
+    </div>
+
+    
+    <section id="achievements" style="margin-bottom: 80px;">
+        <h2 class="section-title">Achievements</h2>
+        <div class="card">
+            <ul class="achievement-list">
+                <li>Achieved Cisco Certificates for Python essential course 1 & 2</li>
+                <li>Actively pursuing multilingual proficiency in German and Korean (Beginner)</li>
+                <li>Awarded Bronze medal in GK Olympiad in 7th Grade </li>
+                <li>Qualified for JEE Advanced</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="interests" style="margin-bottom: 80px;">
+        <h2 class="section-title">Interests & Hobbies</h2>
+        <div class="card">
+            <div class="grid-2">
+                <ul class="achievement-list">
+                    <li>Creative Arts: Passionate about painting and doodling</li>
+                    <li>Competitive Coding</li>
+                    <li>Photography: Capturing landscapes and wildlife</li>
+                </ul>
+                <ul class="achievement-list">
+                    <li>Exploring global cultures through international drama</li>
+                    <li>Diverse music genres for focus and creativity</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Srushti Sudhakar Jadhav. Developed with Code & Creativity.</p>
+</footer>
+
+</body>
+</html>
